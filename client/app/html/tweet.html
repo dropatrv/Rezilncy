@@ -1,0 +1,16 @@
+<b>Query:</b>
+<input type="text" name="Search" [(ngModel)]="query"/>
+<button class="btn btn-primary" (click)="search()">Search</button>
+<h2>Tweets</h2>
+ <ul class="list-group">
+    <li class="list-group-item list-group-item-action list-group-item-warning" *ngFor="let tweet of perPageTweets">
+        <h4  class="list-group-item-heading"><span><b>Post:</b> {{tweet.text}}</span></h4>
+        <div  class="list-group-item-text"><span><b>User:</b>  {{tweet.user.name}}</span></div>
+        <ul class="list-group" *ngIf="tweet.extended_entities != null">
+        	<li class="list-group-item list-group-item-action list-group-item-success" *ngFor="let media of tweet.extended_entities.media">
+        		<img [src] = "media.media_url"/>
+        	</li>
+        </ul>
+    </li>
+</ul>
+<pagination [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>

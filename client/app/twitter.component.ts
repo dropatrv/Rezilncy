@@ -15,6 +15,7 @@ export class TwitterComponent implements OnInit
     perPageTweets: any[];
     itemsPerPage:number = 5;
     startPoint:number=0;
+    noTweets:boolean=false;
 
  	constructor(private _TwitterAPIService: TwitterAPIService){
  	}
@@ -23,6 +24,7 @@ export class TwitterComponent implements OnInit
  	}
 
  	search(){
+
  			this._TwitterAPIService.getTweets(this.query)
  					.subscribe(
  						response => this.assignResults(response),
@@ -33,8 +35,13 @@ export class TwitterComponent implements OnInit
 
  	assignResults(response:any){
  		this.tweets = response;
+ 		
+ 		if(!this.tweets.length)
+ 			this.noTweets = true;
+
  		this.totalItems = this.tweets.length;
  		this.perPageTweets = this.tweets.slice(this.startPoint,5);
+ 		this.currentPage = 1;
  	}
 
  	pageChanged(event:any):void {

@@ -1,7 +1,8 @@
 <b>Query:</b>
-<input type="text" name="Search" [(ngModel)]="query"/>
+<input type="text" name="Search" [(ngModel)]="query" (keyup.enter)="search()"/>
 <button class="btn btn-primary" (click)="search()">Search</button>
 <h2>Tweets</h2>
+<pagination *ngIf="totalItems !== 0" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>
  <ul class="list-group">
     <li class="list-group-item list-group-item-action list-group-item-warning" *ngFor="let tweet of perPageTweets">
         <h4  class="list-group-item-heading"><span><b>Post:</b> {{tweet.text}}</span></h4>
@@ -13,4 +14,5 @@
         </ul>
     </li>
 </ul>
-<pagination [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>
+<p *ngIf="noTweets">Oops! No tweets found for the given query :(</p>
+<pagination *ngIf="totalItems !== 0" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>

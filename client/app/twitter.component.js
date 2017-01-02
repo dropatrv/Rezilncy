@@ -18,6 +18,7 @@ var TwitterComponent = (function () {
         this.currentPage = 1;
         this.itemsPerPage = 5;
         this.startPoint = 0;
+        this.noTweets = false;
     }
     TwitterComponent.prototype.ngOnInit = function () {
     };
@@ -30,8 +31,11 @@ var TwitterComponent = (function () {
     };
     TwitterComponent.prototype.assignResults = function (response) {
         this.tweets = response;
+        if (!this.tweets.length)
+            this.noTweets = true;
         this.totalItems = this.tweets.length;
         this.perPageTweets = this.tweets.slice(this.startPoint, 5);
+        this.currentPage = 1;
     };
     TwitterComponent.prototype.pageChanged = function (event) {
         console.log('Page changed to: ' + event.page);

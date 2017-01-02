@@ -16,6 +16,7 @@ export class TwitterComponent implements OnInit
     itemsPerPage:number = 5;
     startPoint:number=0;
     noTweets:boolean=false;
+    isLoading:boolean=false;
 
  	constructor(private _TwitterAPIService: TwitterAPIService){
  	}
@@ -24,16 +25,18 @@ export class TwitterComponent implements OnInit
  	}
 
  	search(){
-
+ 			this.isLoading = true;
  			this._TwitterAPIService.getTweets(this.query)
  					.subscribe(
  						response => this.assignResults(response),
  						err => {
+ 							alert(err);
  							console.log(err);
  						});	
  	}
 
  	assignResults(response:any){
+ 		this.isLoading = false;
  		this.tweets = response;
 
  		if(!this.tweets.length)

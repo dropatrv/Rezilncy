@@ -19,17 +19,21 @@ var TwitterComponent = (function () {
         this.itemsPerPage = 5;
         this.startPoint = 0;
         this.noTweets = false;
+        this.isLoading = false;
     }
     TwitterComponent.prototype.ngOnInit = function () {
     };
     TwitterComponent.prototype.search = function () {
         var _this = this;
+        this.isLoading = true;
         this._TwitterAPIService.getTweets(this.query)
             .subscribe(function (response) { return _this.assignResults(response); }, function (err) {
+            alert(err);
             console.log(err);
         });
     };
     TwitterComponent.prototype.assignResults = function (response) {
+        this.isLoading = false;
         this.tweets = response;
         if (!this.tweets.length)
             this.noTweets = true;

@@ -2,17 +2,18 @@
 <input type="text" name="Search" [(ngModel)]="query" (keyup.enter)="search()"/>
 <button class="btn btn-primary" (click)="search()">Search</button>
 <h2>Tweets</h2>
-<pagination *ngIf="totalItems !== 0" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>
- <ul class="list-group">
+<div class="loader" *ngIf="isLoading"></div>
+<pagination *ngIf="totalItems !== 0 && !isLoading" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>
+ <ul class="list-group" *ngIf="!isLoading">
     <li class="list-group-item list-group-item-action list-group-item-warning" *ngFor="let tweet of perPageTweets">
         <h4  class="list-group-item-heading"><span><b>Post:</b> {{tweet.text}}</span></h4>
-        <div  class="list-group-item-text"><span><b>User:</b>  {{tweet.user.name}}</span></div>
-        <div  class="list-group-item-text"><span><b>Created at:</b>  {{tweet.created_at}}</span></div>
+        <div  class="list-group-item-text"><span><b>Posted by:</b>  {{tweet.user.name}}</span></div>
+        <div class="list-group-item-text"><span><b>Created at:</b>  {{tweet.created_at | date}}</span></div>
         <ul class="list-group" *ngIf="tweet.extended_entities != null">
         	<li class="list-group-item list-group-item-action list-group-item-success" *ngFor="let media of tweet.extended_entities.media">
         		<img width="100%" *ngIf="media.type === 'photo'" [src] = "media.media_url"/>
         		<div *ngIf="media.type === 'video'" align="center" class="embed-responsive embed-responsive-16by9">
-        			<video controls autoplay loop class="embed-responsive-item" *ngFor="let variant of media.video_info.variants">
+        			<video controls [poster]="media.media_url" class="embed-responsive-item" *ngFor="let variant of media.video_info.variants">
         			<source [src] = "variant.url" [type]="variant.content_type">
         			</video>
         		</div>
@@ -23,5 +24,5 @@
         </ul>
     </li>
 </ul>
-<p *ngIf="noTweets">Oops! No tweets found for the given query :(</p>
-<pagination *ngIf="totalItems !== 0" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>
+<p *ngIf="noTweets && !isLoading">Oops! No tweets found for the given query :(</p>
+<pagination *ngIf="totalItems !== 0 && !isLoading" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>

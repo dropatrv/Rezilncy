@@ -9,7 +9,15 @@
         <div  class="list-group-item-text"><span><b>User:</b>  {{tweet.user.name}}</span></div>
         <ul class="list-group" *ngIf="tweet.extended_entities != null">
         	<li class="list-group-item list-group-item-action list-group-item-success" *ngFor="let media of tweet.extended_entities.media">
-        		<img [src] = "media.media_url"/>
+        		<img *ngIf="media.type === 'photo'" [src] = "media.media_url"/>
+        		<div *ngIf="media.type === 'video'" align="center" class="embed-responsive embed-responsive-16by9">
+        			<video controls autoplay loop class="embed-responsive-item" *ngFor="let variant of media.video_info.variants">
+        			<source [src] = "variant.url" [type]="variant.content_type">
+        			</video>
+        		</div>
+        		<audio *ngIf="media.type === 'audio'" controls>
+        		<source [src] = "media.media_url"/>
+        		</audio>
         	</li>
         </ul>
     </li>

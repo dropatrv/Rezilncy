@@ -35,11 +35,14 @@ export class TwitterComponent implements OnInit
 
  	assignResults(response:any){
  		this.tweets = response;
- 		
+
  		if(!this.tweets.length)
  			this.noTweets = true;
+ 		else
+ 			this.noTweets = false;
 
  		this.totalItems = this.tweets.length;
+ 		this.startPoint = 0;
  		this.perPageTweets = this.tweets.slice(this.startPoint,5);
  		this.currentPage = 1;
  	}

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TwitterAPIService } from './twitter.service';
 import {Observable} from 'rxjs/Rx';
-import {Tweet} from './tweet.model';
 
 @Component({
   selector: 'my-app',

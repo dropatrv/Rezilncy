@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import { Http, Response, Headers, Request, RequestOptions, RequestMethod, URLSearchParams } from '@angular/http';
 import {Observable} from 'rxjs/Rx';
-import {Tweet} from './tweet.model';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';

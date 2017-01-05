@@ -15,9 +15,7 @@ export class TwitterAPIService {
 
   	  this.headers = new Headers();
       this.headers.append('Content-Type', 'application/json');
-      //this.headers.append('Parameter',  params);
-
-
+      
       let options = new RequestOptions({
           method: RequestMethod.Get,
           headers: this.headers,

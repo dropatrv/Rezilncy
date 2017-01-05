@@ -16,7 +16,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n\t\t<h1>{{title}}</h1>\n\t\t<nav>\n\t\t<a routerLink=\"search\" routerLinkActive=\"active\">Find Tweets</a>\n\t\t</nav>\n\t\t <router-outlet></router-outlet>"
+            template: "\n\t\t<h1>{{title}}</h1>\n\t\t <nav>\n\t\t  <ul>\n\t\t\t<li>\n\t\t\t\t<a routerLink=\"search\" routerLinkActive=\"active\">Find Tweets</a>\n\t\t\t</li>\n\t\t\t<li>\t\t\n\t\t\t\t<a href=\"https://dev.twitter.com/rest/public/search\">Twitter Search API Reference</a>\n\t\t\t</li>\n\t\t  </ul>\n\t\t </nav>\n\t\t <router-outlet></router-outlet>"
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

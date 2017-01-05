@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, AfterViewInit } from '@angular/core';
 import { TwitterAPIService } from './twitter.service';
 import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'my-app',
-  templateUrl: 'app/html/tweet.html'  			  
+  templateUrl: 'app/html/tweet.html'			  
 })
 export class TwitterComponent implements OnInit
  { 

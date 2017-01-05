@@ -1,7 +1,6 @@
-<b>Query:</b>
-<input type="text" name="Search" [(ngModel)]="query" (keyup.enter)="search()"/>
+<strong>Query:</strong>
+<input type="text" name="Search" [(ngModel)]="query" (keyup.enter)="search()" autofocus/>
 <button class="btn btn-primary" (click)="search()">Search</button>
-<!-- <button class="btn btn-secondary" (click)="stream()">Stream</button> -->
 <h2>Tweets</h2>
 <div class="loader" *ngIf="isLoading"></div>
 <pagination *ngIf="totalItems !== 0 && !isLoading" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" [itemsPerPage]="itemsPerPage"></pagination>

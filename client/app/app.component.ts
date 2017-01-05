@@ -4,6 +4,7 @@ import {TwitterAPIService} from './twitter.service';
 @Component({
 	selector: 'my-app',
 	template: `
+	    <div class="left">
 		<h1>{{title}}</h1>
 		 <nav>
 		  <ul>
@@ -15,7 +16,9 @@ import {TwitterAPIService} from './twitter.service';
 			</li>
 		  </ul>
 		 </nav>
-		 <router-outlet></router-outlet>`
+		 <router-outlet></router-outlet>
+		 </div>`
+
 })
 export class AppComponent {
 	title = 'ThanxTwitterAPI';

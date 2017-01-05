@@ -11,7 +11,7 @@ export class TwitterAPIService {
 
   constructor (private http: Http) {}
 
-  getTweets(query:string): Observable<any[]> {
+  searchTweets(query:string): Observable<any[]> {
 
   	  this.headers = new Headers();
       this.headers.append('Content-Type', 'application/json');
@@ -28,6 +28,7 @@ export class TwitterAPIService {
                     .map((res:Response) => res.json().statuses)
                     .catch(this.handleError);
   }
+
 
    private handleError (error: Response) {
     return Observable.throw(error.json().error);

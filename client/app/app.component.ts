@@ -6,7 +6,7 @@ import {TwitterAPIService} from './twitter.service';
 	template: `
 		<h1>{{title}}</h1>
 		<nav>
-		<a routerLink="tweets" routerLinkActive="active">Search Tweets</a>
+		<a routerLink="search" routerLinkActive="active">Find Tweets</a>
 		</nav>
 		 <router-outlet></router-outlet>`
 })

@@ -26,7 +26,7 @@ var TwitterComponent = (function () {
     TwitterComponent.prototype.search = function () {
         var _this = this;
         this.isLoading = true;
-        this._TwitterAPIService.getTweets(this.query)
+        this._TwitterAPIService.searchTweets(this.query)
             .subscribe(function (response) { return _this.assignResults(response); }, function (err) {
             alert(err);
             console.log(err);

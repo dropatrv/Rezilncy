@@ -11,7 +11,8 @@ import {APP_BASE_HREF} from '@angular/common';
 import { PaginationModule } from 'ng2-bootstrap/pagination/pagination.module';
 
 const appRoutes: Routes = [
-  { path: 'tweets', component: TwitterComponent }];
+  { path: 'search', component: TwitterComponent }
+  ];
 
 @NgModule({
   imports:      [  PaginationModule.forRoot(), RouterModule.forRoot(appRoutes),

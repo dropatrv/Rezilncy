@@ -26,7 +26,7 @@ export class TwitterComponent implements OnInit
 
  	search(){
  			this.isLoading = true;
- 			this._TwitterAPIService.getTweets(this.query)
+ 			this._TwitterAPIService.searchTweets(this.query)
  					.subscribe(
  						response => this.assignResults(response),
  						err => {
@@ -34,6 +34,7 @@ export class TwitterComponent implements OnInit
  							console.log(err);
  						});	
  	}
+
 
  	assignResults(response:any){
  		this.isLoading = false;

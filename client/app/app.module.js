@@ -19,7 +19,8 @@ var twitter_component_1 = require('./twitter.component');
 var common_1 = require('@angular/common');
 var pagination_module_1 = require('ng2-bootstrap/pagination/pagination.module');
 var appRoutes = [
-    { path: 'tweets', component: twitter_component_1.TwitterComponent }];
+    { path: 'search', component: twitter_component_1.TwitterComponent }
+];
 var AppModule = (function () {
     function AppModule() {
     }

@@ -55,9 +55,10 @@ app.get('/search', function(req, res, next) {
   twitterAPI.get('search/tweets', { q: queryString.query}, function(error, tweets, response){
     if(error){
     	console.log(error);
-    	throw error;
+    	res.send(error);
     } 
     res.send(tweets);
   });
 });
+
 

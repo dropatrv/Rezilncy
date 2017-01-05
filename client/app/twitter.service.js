@@ -18,7 +18,7 @@ var TwitterAPIService = (function () {
         this.http = http;
         this.headers = null;
     }
-    TwitterAPIService.prototype.getTweets = function (query) {
+    TwitterAPIService.prototype.searchTweets = function (query) {
         this.headers = new http_1.Headers();
         this.headers.append('Content-Type', 'application/json');
         //this.headers.append('Parameter',  params);

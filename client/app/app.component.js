@@ -11,12 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'ThanxTwitterAPI';
+        this.title = 'Welcome!';
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n\t    <div class=\"left\">\n\t\t<h1>{{title}}</h1>\n\t\t <nav>\n\t\t  <ul>\n\t\t\t<li>\n\t\t\t\t<a routerLink=\"search\" routerLinkActive=\"active\">Find Tweets</a>\n\t\t\t</li>\n\t\t\t<li>\t\t\n\t\t\t\t<a href=\"https://dev.twitter.com/rest/public/search\">Twitter Search API Reference</a>\n\t\t\t</li>\n\t\t  </ul>\n\t\t </nav>\n\t\t <router-outlet></router-outlet>\n\t\t </div>"
+            template: "\n\t    <div class=\"left\">\n\t\t <img src='app/images/Rezilncy One Pager.pdf' width='100%'/>\n\t\t </div>"
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

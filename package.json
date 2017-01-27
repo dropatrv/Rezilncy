@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "tsc && node server/index.js",
+    "start": "node server/index.js",
     "tsc": "tsc"
   },
   "dependencies": {
